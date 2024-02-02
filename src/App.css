@@ -1,38 +1,853 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/******************* ModeSwitch komponenti *******************/
+
+* {
+  font-family: 'Inter', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mode-degistir {
+  padding-top: 2rem;
+  max-width: 1500px;
+  display: flex;
+  gap: 1rem;
+  align-items:flex-end;
+  justify-content: right;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modeText {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  color: #777777;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.toggle-switch {
+  width: 3.7rem;
+  height: 1.5rem;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.toggle-switch-checkbox {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 3px;
+  bottom: 0;
+  background-color: #4731d3;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffe86e;
+  transition: 0.6s;
+  border-radius: 50%;
+}
+
+.slider:after {
+  /* dark mode aktifken hilale dönüşmesi için */
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffe86e;
+  transition: 0.6s;
+  border-radius: 50%;
+  transform: translateX(0px) translateY(-2px);
+}
+
+.toggle-switch-checkbox:checked+.slider {
+  background-color: #3a3a3a;
+}
+
+.toggle-switch-checkbox:checked+.slider:before {
+  transform: translateX(26px);
+
+}
+
+.toggle-switch-checkbox:checked+.slider:after {
+  transform: translateX(22px) translateY(-2px);
+  background-color: #3a3a3a;
+}
+
+.slider {
+  cursor: pointer;
+  background-color: #4731d3;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffe86e;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle-switch-checkbox:checked+.slider {
+  background-color: #3a3a3a;
+}
+
+.toggle-switch-checkbox:checked+.slider:before {
+  transform: translateX(26px);
+  /* transform değeri değiştirildi */
+}
+
+/*******************Header*******************/
+
+.header {
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  color: #7b61ff;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  transform: matrix(0.87, 0.49, -0.51, 0.86, 0, 0);
+
+  background-color: #eeebff;
+  padding: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+}
+
+.headerNav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: end;
+}
+
+.headerNav a {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.75rem;
+  color: #6B7280;
+  text-decoration: none;
+  padding: 0.8rem 2.5rem;
+  cursor: pointer;
+}
+
+.headerNav a:last-child {
+
+  background: #ffffff;
+  color: #3730A3;
+
+  border: 1px solid #3730a3;
+  border-radius: 6px;
+}
+
+.headerNav a:hover {
+  border: 1px solid #3730a3;
+  border-radius: 6px;
+  background: #eeebff;
+}
+
+/*******************Bio Komponenti*******************/
+
+.hero {
+  max-width: 1500px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 700px;
+}
+
+.heroLeft {
   display: flex;
   flex-direction: column;
+}
+
+.isim {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.line {
+  border: none;
+  border-top: 1px solid #3730a3;
+  width: 6rem;
+  display: block;
+}
+
+.isim p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #4338ca;
+}
+
+.heroLeft h2 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 72px;
+  color: #1f2937;
+  display: flex;
+}
+
+.isimP {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #6b7280;
+  display: flex;
+  max-width: 800px;
+}
+
+.isim-cont {
+  display: flex;
+  flex-direction: column;
+  min-width: 900px;
+  column-gap: 0%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button-1 p:first-child {
+  background: #3730a3;
+  border-radius: 6px;
+
+  color: #ffffff;
+}
+
+.button-1 p {
+  background: #ffffff;
+  width: 9rem;
+  height: 3rem;
+  border: 1px solid #3730a3;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button-1 p,
+.button-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-1 p,
+.button-2 p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #3730a3;
+}
+
+.button-2 p {
+  padding-left: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button-2 {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #ffffff;
+  /* Default/indigo/800 */
+  width: 9rem;
+  height: 3rem;
+  border: 1px solid #3730a3;
+  border-radius: 6px;
+}
+
+.button-1 p:hover {
+  background: #eeebff;
+  color: #3730a3;
+}
+
+.button-2:hover {
+  background: #eeebff;
+}
+
+.pp {
+  display: flex;
+  border-radius: 20px;
+  width: 470px;
+  height: 370px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*******************Skills komponenti*******************/
+
+.skills {
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.skills h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 48px;
+  color: #1f2937;
+  margin-top: 8rem;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.skillsListGroup {
+  flex-basis: calc(33.33% - 10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.skillsListGroup h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 28px;
+  color: #4338ca;
+}
+
+.skillsListGroup p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #6b7280;
+  display: flex;
+  max-width: 70%;
+  margin:0;
+  padding: 0;
+}
+
+/*Profile komponenti*/
+
+.profile {
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.profileLine {
+  border: none;
+  border-top: 1px solid #3730a3;
+  width: 100%;
+  display: block;
+}
+
+.profile h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 48px;
+  color: #1f2937;
+  margin-top: 3rem;
+  padding: 0;
+}
+
+.profileBox1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profileBox {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.profileBox h4,
+.aboutMe h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 28px;
+  width: 30%;
+  color: #4338ca;
+  margin:0;
+  padding-bottom: 2rem;
+}
+
+.dogumTarihi {
+  display: flex;
+}
+
+.solBolum {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 200%;
+  width: 30%;
+  gap:1rem;
+  color: #000000;
+}
+
+.solBolum p {
+  margin: 0;
+  text-align: left;
+}
+
+
+.sagBolum {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 200%;
+  width: 20rem;
+  color: #000000;
+  gap:1rem;
+}
+
+.sagBolum p {
+  margin: 0;
+}
+
+.sagBolum p:last-child {
+  margin-top: 1rem;
+}
+
+.aboutMe {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-right: 10rem;
+}
+
+.aboutMe p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: #6b7280;
+}
+
+/* ----------Projects---------*/
+
+.projects {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 7rem;
+}
+
+.projects h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 48px;
+  color: #1f2937;
+}
+
+.kartlarGrup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-basis: calc(33.33% - 10px);
+  gap: 4rem;
+}
+
+
+.projects-list img {
+  width: 100%;
+  height: 11rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-list h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 28px;
+  width: 20rem;
+  color: #4338ca;
+  display: flex;
+  margin:0;
+  padding-top: 1rem;
+}
+
+.aciklama {
+  width: 20rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.techStack {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0px;
+
+  font-family: "Inter";
+}
+
+.techStack p {
+  box-sizing: border-box;
+  font-size: 13px;
+  color: #3730a3;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 7px 18px 7px;
+  width: 100px;
+  background: #ffffff;
+  border: 1px solid #3730a3;
+  border-radius: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+.details {
+  font-family: "Inter";
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.details p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+
+  text-decoration-line: underline;
+
+  /* Default/indigo/800 */
+
+  color: #3730a3;
+}
+
+/* ----------Footer---------*/
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background: #f9f9f9;
+}
+
+.letsWork {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 48px;
+  color: #1f2937;
+  display: flex;
+  width: 1500px;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.rectangle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1500px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emailcss {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  color: #AF0C48;
+}
+
+.sagF {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.sagF1 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #0a0a14;
+}
+
+.sagF2 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #00ab6b;
+}
+
+.sagF a:first-child {
+  color: #0A0A14;
+}
+
+.sagF3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #0077b5;
+}
+
+/* dark mode */
+
+body.dark-mode {
+  background-color: #252128;
+  color: #ffffff;
+}
+
+.footer.dark-mode {
+  background-color: #141414;
+  color: #aebccf;
+}
+
+.modeText.dark-mode {
+  color: #d9d9d9;
+}
+
+.lang.dark-mode {
+  color: #bab2e7;
+}
+
+.footer.dark-mode h3 {
+  color: #aebccf;
+}
+
+.emailcss.dark-mode {
+  color: #bab2e7;
+}
+
+.sagF1.dark-mode {
+  color: #bab2e7;
+}
+
+.logo.dark-mode {
+  color: #8f88ff;
+  background-color: #4731d3;
+}
+
+.line.dark-mode {
+  border-top: 1px solid #6b7280;
+}
+
+.isim.dark-mode p {
+  color: #6b7280;
+}
+
+.headerNav.dark-mode a:last-child {
+  background: #ffffff;
+  border: 1px solid #3730a3;
+  border-radius: 6px;
+}
+
+.heroLeft.dark-mode h2 {
+  color: #aebccf;
+}
+
+.skills.dark-mode h3 {
+  color: #aebccf;
+}
+
+.skills.dark-mode h4 {
+  color: #B7AAFF;
+}
+
+.profileLine.dark-mode {
+  border-top: 1px solid #6b7280;
+}
+
+.profile.dark-mode h3 {
+  color: #aebccf;
+}
+
+.profile.dark-mode h4 {
+  color: #B7AAFF;
+}
+
+.profile.dark-mode p {
+  color: #FFFFFF;
+}
+
+.projects.dark-mode h3 {
+  color: #aebccf;
+}
+
+.projects.dark-mode h4 {
+  color: #CFCBFF;
+}
+
+.aciklama {
+  color: #6B7280;
+}
+
+.aciklama.dark-mode {
+  color: #FFFFFF;
+}
+
+.details p {
+  color: #3730A3;
+}
+
+.details p.dark-mode {
+  color: #E1E1FF;
+}
+
+
+.techStack p.dark-mode {
+  color: #8F88FF;
+  background-color: #383838;
+  border: 1px solid #8F88FF;
+}
+
+.projects.dark-mode .profileLine {
+  border-top: 1px solid #6b7280;
+}
+
+.button-2.dark-mode {
+  background-color: #383838;
+  color: #E1E1FF;
+  border: 1px solid #E1E1FF;
+}
+
+.button-2.dark-mode p, .button-2.dark-mode img {
+  color: #E1E1FF;
+}
+
+.button-1.dark-mode p {
+  background-color: #E1E1FF;
+  color:#000000;
+}
+
+
+@media only screen and (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero,
+  .buttons,
+  .skills,
+  .skillsList,
+  .profile,
+  .profileBox1,
+  .projects,
+  .projects-list,
+  .footer,
+  .rectangle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
