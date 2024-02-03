@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ModeSwitch({ handleLanguageChange, language }) {
   const [darkMode, setDarkMode] = useState(
@@ -13,7 +15,7 @@ export default function ModeSwitch({ handleLanguageChange, language }) {
   useEffect(() => {
     const body = document.body;
     body.classList.toggle("dark-mode", darkMode);
-  
+
     const elementsToToggleDarkMode = [
       ".footer",
       ".modeText",
@@ -35,18 +37,40 @@ export default function ModeSwitch({ handleLanguageChange, language }) {
       ".aciklama",
       ".details p",
     ];
-  
+
     elementsToToggleDarkMode.forEach((elementSelector) => {
       const elements = document.querySelectorAll(elementSelector);
       elements.forEach((element) => {
         element.classList.toggle("dark-mode", darkMode);
       });
     });
-  
+
     localStorage.setItem("darkMode", darkMode.toString());
+
+    /* aldığımız language propuyla dark mode toastunun dilini de değiştirdik */
+
+    const toastMessage = darkMode
+      ? language === "en"
+        ? "Dark mode is now enabled"
+        : "Koyu mod şimdi etkin"
+      : language === "en"
+      ? "Dark mode is now disabled"
+      : "Koyu mod şimdi devre dışı";
+
+    toast.dark(toastMessage, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      style: {
+        color: darkMode ? "white" : "black",
+        background: darkMode ? "#333" : "#fff",
+      },
+    });
   }, [darkMode, localStorage.getItem("darkMode")]);
-  
-  
+
   /* mod-degistir butonunu tersine çevirir. karanlık mod aç/kapat. */
   const handleToggle = () => {
     setDarkMode(!darkMode);
@@ -54,6 +78,7 @@ export default function ModeSwitch({ handleLanguageChange, language }) {
 
   return (
     <div className={`App ${darkMode ? "dark-mode" : ""}`}>
+      <ToastContainer />
       <div className="mode-degistir">
         <label className="toggle-switch">
           <input

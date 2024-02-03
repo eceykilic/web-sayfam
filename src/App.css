@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+
 /******************* ModeSwitch komponenti *******************/
 
 * {
@@ -43,7 +44,7 @@
   cursor: pointer;
   top: 0;
   left: 0;
-  right: 3px;
+  right: 8px;
   bottom: 0;
   background-color: #4731d3;
   transition: 0.4s;
@@ -690,6 +691,7 @@ a {
   letter-spacing: 0.01em;
   color: #0077b5;
 }
+
 
 /******************* dark mode *******************/
 
