@@ -116,7 +116,6 @@
 
 .toggle-switch-checkbox:checked+.slider:before {
   transform: translateX(26px);
-  /* transform değeri değiştirildi */
 }
 
 /*******************Header*******************/
@@ -304,7 +303,6 @@ a {
   align-items: center;
   gap: 2px;
   background: #ffffff;
-  /* Default/indigo/800 */
   width: 9rem;
   height: 3rem;
   border: 1px solid #3730a3;
@@ -382,7 +380,7 @@ a {
   padding: 0;
 }
 
-/*Profile komponenti*/
+/*******************Profile komponenti*******************/
 
 .profile {
   max-width: 1500px;
@@ -496,7 +494,7 @@ a {
   color: #6b7280;
 }
 
-/* ----------Projects---------*/
+/*******************Projects*******************/
 
 .projects {
   max-width: 1500px;
@@ -599,16 +597,11 @@ a {
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
-  /* identical to box height, or 100% */
-
   text-decoration-line: underline;
-
-  /* Default/indigo/800 */
-
   color: #3730a3;
 }
 
-/* ----------Footer---------*/
+/*******************Footer*******************/
 
 
 .footer {
@@ -698,7 +691,12 @@ a {
   color: #0077b5;
 }
 
-/* dark mode */
+/******************* dark mode *******************/
+
+
+a.sagF2.dark-mode:first-child {
+  color: #E1E1FF;
+}
 
 body.dark-mode {
   background-color: #252128;
@@ -828,26 +826,75 @@ body.dark-mode {
 }
 
 
-@media only screen and (max-width: 768px) {
+/******************* responsive *******************/
+
+
+@media only screen and (max-width: 600px) {
   body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
   }
 
-  .hero,
-  .buttons,
-  .skills,
-  .skillsList,
-  .profile,
-  .profileBox1,
-  .projects,
-  .projects-list,
-  .footer,
-  .rectangle {
+  .pp {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    display: none;
   }
+
+  .heroLeft h2 {
+    font-size: 60px;
+  }
+
+  div.isim-cont {
+    max-width: 600px;
+    display: flex;
+  }
+
+  p.isimP {
+    max-width: 570px;
+  }
+  .heroLeft {
+    max-width: 600px;
+  }
+
+  .skillsListGroup p {
+    max-width: 580px;
+  }
+
+  div.aboutMe {
+    margin-left: 3rem;
+  }
+
+  .aboutMe p {
+    width: 280px;
+  }
+
+  .solBolum {
+    width: 200px;
+    margin-right: 1rem;
+  }
+
+  .projects-list {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  .projects-list img {
+    height: 250px;
+  }
+
+  .aciklama {
+    font-size: 20px;
+  }
+
+  .rectangle {
+    width: 550px;
+  }
+
+  .letsWork {
+    font-size: 40px;
+    padding-left: 3rem;
+  }
+
 }

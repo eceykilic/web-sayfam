@@ -4,16 +4,20 @@ import { Link } from "react-scroll";
 export default function Bio({ language, darkMode }) {
 
   const [githubImage, setGithubImage] = useState(
-    darkMode ? "./icons/github-dark.png" : "./icons/github-light.png"
+    darkMode ? "./icons/githubdark.png" : "./icons/github.png"
   );
   const [linkedInImage, setLinkedInImage] = useState(
-    darkMode ? "./icons/linkedin-dark.png" : "./icons/linkedin-light.png"
+    darkMode ? "./icons/linkdark.png" : "./icons/LinkedIn.png"
   );
 
   useEffect(() => {
     console.log("Dark mode güncellendi:", darkMode);
+  
+    // Github resmi güncelleme
     setGithubImage(darkMode ? "./icons/githubdark.png" : "./icons/github.png");
-    setLinkedInImage(darkMode ? "./icons/linkedIndark.png" : "./icons/linkedIn.png");
+  
+    // LinkedIn resmi güncelleme
+    setLinkedInImage(darkMode ? "./icons/linkdark.png" : "./icons/LinkedIn.png");
   }, [darkMode]);
 
 
@@ -45,7 +49,7 @@ export default function Bio({ language, darkMode }) {
                 </Link>
               </div>
               <div className="button-2">
-                <img src=".\icons\github.png" alt="github" />
+                <img src={githubImage} alt="github" />
                 <a
                   href="https://github.com/eceykilic"
                   target="_blank"
@@ -55,7 +59,7 @@ export default function Bio({ language, darkMode }) {
                 </a>
               </div>
               <div className="button-2">
-                <img src=".\icons\LinkedIn.png" alt="linkedIn" />
+                <img src={linkedInImage} alt="linkedIn" />
                 <a
                   href="https://www.linkedin.com/in/ece-yucel-kilic-40b856150/"
                   target="_blank"
