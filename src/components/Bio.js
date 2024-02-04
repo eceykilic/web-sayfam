@@ -21,6 +21,8 @@ export default function Bio({ language, darkMode }) {
   }, [darkMode]);
 
 
+
+
   return (
     <div className="hero">
       <div className="heroLeft">

@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Profile from "./components/Profile";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
+import Footertail from "./components/Footertail"
 import { useState, useEffect } from "react";
 
 function App() {
@@ -38,8 +39,13 @@ function App() {
       <Projects language={language} />
       <div id="footer"></div>
       <Footer language={language} />
+      
     </div>
   );
 }
 
 export default App;
+
+/* 
+tailwind için bunu footer yerine yaz 
+<Footertail language={language} /> */

@@ -9,6 +9,12 @@ export default function ModeSwitch({ handleLanguageChange, language }) {
     /* localde dark modea karşılık gelen bir şey var ise değerini al */
   );
 
+  /* başlangıçta sayfa açılınca seçili dile göre uyarı vermeli */
+  const [defaultLanguage, setDefaultLanguage] = useState("tr");
+  useEffect(() => {
+    setDefaultLanguage(language);
+  }, [language]);
+
   /* handleLanguageChange appten prop olarak geçirildi */
 
   /* darkMode statei güncellenince çalışan useEffect */
@@ -50,10 +56,10 @@ export default function ModeSwitch({ handleLanguageChange, language }) {
     /* aldığımız language propuyla dark mode toastunun dilini de değiştirdik */
 
     const toastMessage = darkMode
-      ? language === "en"
+      ? defaultLanguage === "en"
         ? "Dark mode is now enabled"
         : "Koyu mod şimdi etkin"
-      : language === "en"
+      : defaultLanguage === "en"
       ? "Dark mode is now disabled"
       : "Koyu mod şimdi devre dışı";
 
