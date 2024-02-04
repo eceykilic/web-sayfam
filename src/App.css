@@ -715,6 +715,7 @@ body.dark-mode {
 
 .footer.dark-mode {
   background-color: #141414;
+  margin:0;
   color: #aebccf;
 }
 
