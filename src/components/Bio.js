@@ -28,7 +28,7 @@ export default function Bio({ language, darkMode }) {
       <div className="heroLeft">
         <div className="isim">
           <div className="line"></div>
-          <p>Ece Yucel Kilic</p>
+          {language === "tr" ? (<p>Ece Yücel Kılıç</p>) : (<p>Ece Yucel Kilic</p>)}  
         </div>
         {language === "en" ? (
           <>
