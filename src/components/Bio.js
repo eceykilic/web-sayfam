@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 export default function Bio({ language, darkMode }) {
 
@@ -51,7 +53,7 @@ export default function Bio({ language, darkMode }) {
                 </Link>
               </div>
               <div className="button-2">
-                <img src={githubImage} alt="github" />
+                <FontAwesomeIcon icon={faGithub} className="icon-style" />
                 <a
                   href="https://github.com/eceykilic"
                   target="_blank"
@@ -61,7 +63,7 @@ export default function Bio({ language, darkMode }) {
                 </a>
               </div>
               <div className="button-2">
-                <img src={linkedInImage} alt="linkedIn" />
+              <FontAwesomeIcon icon={faLinkedinIn} className="icon-link"/>
                 <a
                   href="https://www.linkedin.com/in/ece-yucel-kilic-40b856150/"
                   target="_blank"
@@ -94,7 +96,7 @@ export default function Bio({ language, darkMode }) {
                 </Link>
               </div>
               <div className="button-2">
-                <img src={githubImage} alt="github" />
+                <FontAwesomeIcon icon={faGithub} className="icon-style"/>
                 <a
                   href="https://github.com/eceykilic"
                   target="_blank"
@@ -104,7 +106,7 @@ export default function Bio({ language, darkMode }) {
                 </a>
               </div>
               <div className="button-2">
-                <img src={linkedInImage} alt="linkedIn" />
+              <FontAwesomeIcon icon={faLinkedinIn} className="icon-link"/>
                 <a
                   href="https://www.linkedin.com/in/ece-yucel-kilic-40b856150/"
                   target="_blank"

@@ -400,6 +400,16 @@ a {
   padding: 0;
 }
 
+.icon-style {
+  font-size: 2rem;
+  color: #3730A3;
+}
+
+.icon-link {
+  font-size: 2rem;
+  color: #3730A3;
+}
+
 /*******************Profile komponenti*******************/
 
 .profile {
@@ -844,6 +854,17 @@ body.dark-mode {
   background-color: #E1E1FF;
   color:#000000;
 }
+
+.icon-style.dark-mode {
+  font-size: 2rem;
+  color: rgb(225, 225, 255);
+}
+
+.icon-link.dark-mode {
+  font-size: 2rem;
+  color: rgb(225, 225, 255);
+}
+
 
 
 /******************* responsive *******************/

@@ -42,6 +42,8 @@ export default function ModeSwitch({ handleLanguageChange, language }) {
       ".sagF a",
       ".aciklama",
       ".details p",
+      ".icon-style",
+      ".icon-link"
     ];
 
     elementsToToggleDarkMode.forEach((elementSelector) => {
