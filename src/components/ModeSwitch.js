@@ -103,7 +103,6 @@ export default function ModeSwitch({ handleLanguageChange, language }) {
           <div className="modeText">
             <span
               className="lang"
-              style={{ color: "#4731d3" }}
               onClick={handleLanguageChange}
             >
               TÜRKÇE

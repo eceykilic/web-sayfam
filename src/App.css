@@ -18,6 +18,10 @@
   margin:0;
 }
 
+.lang {
+  color: #4731D3;
+}
+
 .mode-degistir {
   padding-top: 2rem;
   max-width: 1500px;
@@ -828,6 +832,7 @@ body.dark-mode {
 .details p.dark-mode {
   color: #E1E1FF;
 }
+
 
 
 .techStack p.dark-mode {

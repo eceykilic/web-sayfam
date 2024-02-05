@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Projects({ language }) {
+export default function Projects({ language, darkMode }) {
   const [projectsData, setProjectsData] = useState([]);
   const [loading, setLoading] = useState(true);
+
 
   // API'den projeleri çekmek için kullanılacak işlev
   const fetchProjectsFromAPI = () => {
@@ -23,7 +24,7 @@ export default function Projects({ language }) {
   // İlk render'da API'den projeleri çek
   useEffect(() => {
     fetchProjectsFromAPI();
-  }, [language]);
+  }, [language, darkMode]);
 
   const renderProjects = (projects) =>
     projects.map((project) => (
