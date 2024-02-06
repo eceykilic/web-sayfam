@@ -12,6 +12,11 @@ import { useState, useEffect } from "react";
 function App() {
   const [language, setLanguage] = useState("en");
 
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true"
+    /* localde dark modea karşılık gelen bir şey var ise değerini al */
+  );
+
   const handleLanguageChange = () => {
     const newLanguage = language === "en" ? "tr" : "en";
     setLanguage(newLanguage);
@@ -29,6 +34,8 @@ function App() {
       <ModeSwitch
         language={language}
         handleLanguageChange={handleLanguageChange}
+        setDarkMode={setDarkMode}
+        darkMode={darkMode}
       />
       <Header language={language} />
       <Bio language={language} />
@@ -36,7 +43,7 @@ function App() {
       <Skills language={language} />
       <Profile language={language} />
       <div id="projects"></div>
-      <Projects language={language} />
+      <Projects language={language} setDarkMode={setDarkMode} darkMode={darkMode} />
       <div id="footer"></div>
       <Footer language={language} />
       

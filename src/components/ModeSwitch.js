@@ -3,11 +3,8 @@ import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function ModeSwitch({ handleLanguageChange, language }) {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("darkMode") === "true"
-    /* localde dark modea karşılık gelen bir şey var ise değerini al */
-  );
+export default function ModeSwitch({ handleLanguageChange, language, darkMode, setDarkMode }) {
+  
 
   /* başlangıçta sayfa açılınca seçili dile göre uyarı vermeli */
   const [defaultLanguage, setDefaultLanguage] = useState("tr");

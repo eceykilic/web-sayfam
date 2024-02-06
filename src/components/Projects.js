@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Projects({ language, darkMode }) {
+export default function Projects({ language, darkMode, setDarkMode }) {
   const [projectsData, setProjectsData] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   // API'den projeleri çekmek için kullanılacak işlev
   const fetchProjectsFromAPI = () => {
@@ -26,23 +25,39 @@ export default function Projects({ language, darkMode }) {
     fetchProjectsFromAPI();
   }, [language, darkMode]);
 
+  useEffect(() => {
+    // Local storage'dan darkMode değerini al
+    const storedDarkMode = localStorage.getItem('darkMode');
+
+    // Eğer local storage'da darkMode değeri varsa ve prop ile farklı ise, prop'u kullanarak güncelle
+    if (storedDarkMode !== null && darkMode !== (storedDarkMode === 'true')) {
+      // darkMode prop'unu kullanarak ana bileşenin state'ini güncelle
+      setDarkMode(storedDarkMode === 'true');
+    }
+  }, [darkMode, setDarkMode]);
+
+  useEffect(() => {
+    // darkMode prop'u değiştiğinde local storage'a kaydet
+    localStorage.setItem('darkMode', darkMode.toString());
+  }, [darkMode]);
+
   const renderProjects = (projects) =>
     projects.map((project) => (
       <div className="projects-list" key={project.id}>
         <img src={project.img} alt="" />
-        <h4>{project.title}</h4>
-        <p className="aciklama">{project.description}</p>
-        <div className="techStack">
+        <h4 className={`${darkMode ? 'dark-mode' : ''}`}>{project.title}</h4>
+        <p className={`aciklama ${darkMode ? 'dark-mode' : ''}`}>{project.description}</p>
+        <div className={`techStack ${darkMode ? 'dark-mode' : ''}`}>
           {project.skills.map((skill, index) => (
-            <p key={index}>{skill}</p>
+            <p key={index} className={`${darkMode ? 'dark-mode' : ''}`}>{skill} </p>
           ))}
         </div>
         <div className="details">
           <a href={project.gitHub} target="_blank" rel="noreferrer">
-            <p>GitHub</p>
+            <p className={`${darkMode ? 'dark-mode' : ''}`}>GitHub</p>
           </a>
           <a href={project.projectSite} target="_blank" rel="noreferrer">
-            <p>View Site</p>
+            <p className={`${darkMode ? 'dark-mode' : ''}`}>View Site</p>
           </a>
         </div>
       </div>
