@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Projects({ language, darkMode, setDarkMode }) {
+export default function Projects({ language, darkMode }) {
   const [projectsData, setProjectsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,22 +24,6 @@ export default function Projects({ language, darkMode, setDarkMode }) {
   useEffect(() => {
     fetchProjectsFromAPI();
   }, [language, darkMode]);
-
-  useEffect(() => {
-    // Local storage'dan darkMode değerini al
-    const storedDarkMode = localStorage.getItem('darkMode');
-
-    // Eğer local storage'da darkMode değeri varsa ve prop ile farklı ise, prop'u kullanarak güncelle
-    if (storedDarkMode !== null && darkMode !== (storedDarkMode === 'true')) {
-      // darkMode prop'unu kullanarak ana bileşenin state'ini güncelle
-      setDarkMode(storedDarkMode === 'true');
-    }
-  }, [darkMode, setDarkMode]);
-
-  useEffect(() => {
-    // darkMode prop'u değiştiğinde local storage'a kaydet
-    localStorage.setItem('darkMode', darkMode.toString());
-  }, [darkMode]);
 
   const renderProjects = (projects) =>
     projects.map((project) => (

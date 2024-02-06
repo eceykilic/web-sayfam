@@ -43,7 +43,7 @@ function App() {
       <Skills language={language} />
       <Profile language={language} />
       <div id="projects"></div>
-      <Projects language={language} setDarkMode={setDarkMode} darkMode={darkMode} />
+      <Projects language={language} darkMode={darkMode} />
       <div id="footer"></div>
       <Footer language={language} />
       
