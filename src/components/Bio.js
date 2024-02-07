@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-scroll";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { useAppContext } from "../hook/context";
 
-export default function Bio({ language, darkMode }) {
+export default function Bio() {
+  //Bu iki state useAppContext custom hooku ile contexten alınıyor.
+  const { language, darkMode } = useAppContext();
 
-  const [githubImage, setGithubImage] = useState(
-    darkMode ? "./icons/githubdark.png" : "./icons/github.png"
-  );
-  const [linkedInImage, setLinkedInImage] = useState(
-    darkMode ? "./icons/linkdark.png" : "./icons/LinkedIn.png"
-  );
+  // dile göre ternary operatörü (şartlı) ile geçişler sağlıyoruz.
 
-  useEffect(() => {
-    console.log("Dark mode güncellendi:", darkMode);
-  
-    // Github resmi güncelleme
-    setGithubImage(darkMode ? "./icons/githubdark.png" : "./icons/github.png");
-  
-    // LinkedIn resmi güncelleme
-    setLinkedInImage(darkMode ? "./icons/linkdark.png" : "./icons/LinkedIn.png");
-  }, [darkMode]);
-
-
-
-
+  // react scroll ile tıklanılan yere gidilirken animasyon sağlıyoruz.
   return (
     <div className="hero">
       <div className="heroLeft">
@@ -36,9 +22,9 @@ export default function Bio({ language, darkMode }) {
           <>
             <div className="isim-cont">
               <h2>
-                Former Interior Architect,
+                Creative thinker
                 <br />
-                Passionate Full-Stack Developer
+                Minimalism lover
               </h2>
               <p className="isimP">Hello, I'm Ece. I'm a former interior architect. 
               I'm now a full-stack developer. If you are looking for a Developer who
@@ -47,7 +33,7 @@ export default function Bio({ language, darkMode }) {
               </p>
             </div>
             <div className="buttons">
-              <div className="button-1">
+              <div className="button-1">              
                 <Link to="footer" smooth={true} duration={2000}>
                   <p>Hire Me</p>
                 </Link>
@@ -78,11 +64,9 @@ export default function Bio({ language, darkMode }) {
           <>
             <div className="isim-cont">
               <h2>
-                "Eski İç Mimar,
+                Tasarımcı Ruhlu
                 <br />
-                Hırslı Bir Full-Stack 
-                <br />
-                Developer
+                Full-Stack Developer
               </h2>
               <p className="isimP">Merhaba, Ben Ece. İç mimarlık mesleğinden Full-Stack Developerlığa
               geçiş yaptım. Eğer tasarım yeteneğini kodlama yeteneğiyle birlikte kullanabilen bir

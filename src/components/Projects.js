@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useAppContext } from "../hook/context";
 
-export default function Projects({ language, darkMode }) {
+export default function Projects() {
+  const {language, darkMode } = useAppContext();
   const [projectsData, setProjectsData] = useState([]);
   const [loading, setLoading] = useState(true);
 

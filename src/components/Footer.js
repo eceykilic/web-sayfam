@@ -1,7 +1,11 @@
 import React from "react";
+import { useAppContext } from "../hook/context";
 
+export default function Footer() {
+  const {language} = useAppContext();
 
-export default function Footer({ language }) {
+  // custom hookum ile dil datasını çekiyorum, bileşenlerimi bu dataya göre 
+  //conditional rendering yapıyorum.
   return (
     <div className="footer">
       {language === "en" ? (

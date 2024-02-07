@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { useAppContext } from '../hook/context';
 
-export default function Header({ language }) {
+export default function Header() {
+  const {language} = useAppContext();
+  // custom hook sayesinde dil değişikliklerine dinamik uyum sağlıyoruz.
   return (
-    <div className="header">
+    <header className="header">
       <p className="logo">E</p>
       {language === "en" ? (
         <nav className="headerNav">
@@ -30,6 +33,6 @@ export default function Header({ language }) {
           </Link>
         </nav>
       )}
-    </div>
+    </header>
   );
 }

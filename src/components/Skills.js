@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { skillsData as importedSkillsData, trSkillsData } from "../data/skills-data";
+import { useAppContext } from "../hook/context";
 
-export default function Skills({ language }) {
+export default function Skills() {
+  const {language} = useAppContext();
   const [skillsData, setSkillsData] = useState([]);
 
   useEffect(() => {

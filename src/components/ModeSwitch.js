@@ -2,12 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useAppContext } from '../hook/context';
 
-export default function ModeSwitch({ handleLanguageChange, language, darkMode, setDarkMode }) {
+export default function ModeSwitch() {
   
+  const { language, handleLanguageChange, setDarkMode, darkMode } = useAppContext();
 
   /* başlangıçta sayfa açılınca seçili dile göre uyarı vermeli */
-  const [defaultLanguage, setDefaultLanguage] = useState("tr");
+  const [defaultLanguage, setDefaultLanguage] = useState("");
   useEffect(() => {
     setDefaultLanguage(language);
   }, [language]);
@@ -16,9 +18,13 @@ export default function ModeSwitch({ handleLanguageChange, language, darkMode, s
 
   /* darkMode statei güncellenince çalışan useEffect */
   useEffect(() => {
+
+    // dark mode seçimine göre body stillendirmesi
     const body = document.body;
     body.classList.toggle("dark-mode", darkMode);
 
+
+    // dark mode seçimine göre belli classların stillendirilmesi
     const elementsToToggleDarkMode = [
       ".footer",
       ".modeText",
@@ -43,6 +49,7 @@ export default function ModeSwitch({ handleLanguageChange, language, darkMode, s
       ".icon-link"
     ];
 
+
     elementsToToggleDarkMode.forEach((elementSelector) => {
       const elements = document.querySelectorAll(elementSelector);
       elements.forEach((element) => {
@@ -62,6 +69,7 @@ export default function ModeSwitch({ handleLanguageChange, language, darkMode, s
       ? "Dark mode is now disabled"
       : "Koyu mod şimdi devre dışı";
 
+    // dile ve dark mode seçimine göre toastify mesaj stillendirmesi
     toast.dark(toastMessage, {
       position: "bottom-right",
       autoClose: 3000,

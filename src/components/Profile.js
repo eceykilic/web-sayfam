@@ -1,6 +1,8 @@
 import React from "react";
+import { useAppContext } from "../hook/context";
 
-export default function Profile({ language }) {
+export default function Profile() {
+  const {language} = useAppContext();
   return (
     <div className="profile">
       <span className="profileLine"></span>
@@ -24,7 +26,7 @@ export default function Profile({ language }) {
               <p>06.08.1996</p>
               <p>Ankara</p>
               <p>
-                Bilkent Üniversitesi
+              {language === "en" ? "Bilkent University" : "Bilkent Üniversitesi"}
                 <br />
                 {language === "en" ? "Licence" : "Lisans"}, 2018
                 <br />

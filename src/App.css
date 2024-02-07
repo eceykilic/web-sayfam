@@ -249,6 +249,7 @@
   color: #1f2937;
   display: flex;
   margin-top: 3rem;
+  letter-spacing: 0.2rem;
 }
 
 .isimP {
@@ -264,7 +265,7 @@
 .isim-cont {
   display: flex;
   flex-direction: column;
-  min-width: 900px;
+  min-width: 800px;
   column-gap: 0%;
   gap: 2rem;
   margin-bottom: 2rem;
@@ -341,8 +342,8 @@ a {
 .pp {
   display: flex;
   border-radius: 20px;
-  width: 470px;
-  height: 370px;
+  width: 550px;
+  height: 400px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -600,7 +601,7 @@ a {
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .techStack p {
@@ -612,7 +613,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 7px 18px 7px;
-  width: 100px;
+  width: 80px;
   background: #ffffff;
   border: 1px solid #3730a3;
   border-radius: 4px;
@@ -891,14 +892,15 @@ body.dark-mode {
     font-size: 60px;
   }
 
-  div.isim-cont {
-    max-width: 600px;
+  .isimP {
+    width: 600px;
+  }
+
+  .isim-cont {
+    width: 500px;
     display: flex;
   }
 
-  p.isimP {
-    max-width: 570px;
-  }
   .heroLeft {
     max-width: 600px;
   }
@@ -940,6 +942,10 @@ body.dark-mode {
   .letsWork {
     font-size: 40px;
     padding-left: 3rem;
+  }
+
+  .footer {
+    width: 580px;
   }
 
 }
