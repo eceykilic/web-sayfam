@@ -9,8 +9,13 @@ export default function ModeSwitch() {
   const { language, handleLanguageChange, setDarkMode, darkMode } = useAppContext();
 
   /* başlangıçta sayfa açılınca seçili dile göre uyarı vermeli */
-  const [defaultLanguage, setDefaultLanguage] = useState("");
+  const [defaultLanguage, setDefaultLanguage] = useState(() => {
+    const storedLanguage = localStorage.getItem("language");
+    return storedLanguage || language;
+  });
+  
   useEffect(() => {
+    localStorage.setItem("language", language);
     setDefaultLanguage(language);
   }, [language]);
 

@@ -6,7 +6,7 @@ const AppContext = createContext();
 // Context'in kullanılacağı yerde kullanılacak bir provider oluşturdum
 // uygulama içerisinde kullanılacak durumları ve işlevleri içerir.
 export const AppProvider = ({ children }) => {
-  const [language, setLanguage] = useState("");
+  const [language, setLanguage] = useState(localStorage.getItem("language"));
 
   // Bu state'in varsayılan değeri, localStorage'da "darkMode" anahtarının değeridir.
   const [darkMode, setDarkMode] = useState(
