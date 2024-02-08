@@ -538,7 +538,7 @@ a {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   margin-bottom: 7rem;
 }
 
@@ -549,6 +549,7 @@ a {
   font-size: 48px;
   line-height: 48px;
   color: #1f2937;
+  margin-bottom: 1rem;
 }
 
 .kartlarGrup {
