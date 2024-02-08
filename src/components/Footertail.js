@@ -1,6 +1,8 @@
 import React from "react";
+import { useAppContext } from "../hook/context";
 
-export default function Footertail({ language }) {
+export default function Footertail() {
+  const {language} = useAppContext();
   return (
     <div className="flex flex-col gap-12 bg-gray-100 p-4">
       <h3 className="font-inter font-semibold text-5xl leading-14 md:leading-14 text-customb flex w-full max-w-screen-xl mx-auto mt-4 md:mt-16">
