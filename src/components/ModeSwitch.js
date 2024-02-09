@@ -1,19 +1,21 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAppContext } from '../hook/context';
 
 export default function ModeSwitch() {
+  const { language, handleLanguageChange, setDarkMode, darkMode, appData } = useAppContext();
   
-  const { language, handleLanguageChange, setDarkMode, darkMode } = useAppContext();
+  // Ensure that appData[language] and modeSwitch are available before destructuring
+  const modeSwitch = appData[language]?.modeSwitch || {};
+  const { dil } = modeSwitch;
 
   /* başlangıçta sayfa açılınca seçili dile göre uyarı vermeli */
   const [defaultLanguage, setDefaultLanguage] = useState(() => {
     const storedLanguage = localStorage.getItem("language");
     return storedLanguage || language;
   });
-  
+
   useEffect(() => {
     localStorage.setItem("language", language);
     setDefaultLanguage(language);
@@ -21,8 +23,8 @@ export default function ModeSwitch() {
 
   /* handleLanguageChange appten prop olarak geçirildi */
 
-  /* darkMode statei güncellenince çalışan useEffect */
-  useEffect(() => {
+   /* darkMode statei güncellenince çalışan useEffect */
+   useEffect(() => {
 
     // dark mode seçimine göre body stillendirmesi
     const body = document.body;
@@ -109,23 +111,14 @@ export default function ModeSwitch() {
         </label>
         <div className="modeText">{darkMode ? "LIGHT MODE" : "DARK MODE"}</div>
         <div className="modeText">|</div>
-        {language === "en" ? (
-          <div className="modeText">
-            <span
-              className="lang"
-              onClick={handleLanguageChange}
-            >
-              TÜRKÇE
-            </span>
-            'YE GEÇ
-          </div>
-        ) : (
-          <div className="modeText">
-            <span className="lang" onClick={handleLanguageChange}>
-              ENGLISH
-            </span>
-          </div>
-        )}
+        <div className="modeText">
+          <p
+            className="lang"
+            onClick={handleLanguageChange}
+          >
+            {dil}
+          </p>
+        </div>
       </div>
     </div>
   );

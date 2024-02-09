@@ -2,25 +2,20 @@ import React from "react";
 import { useAppContext } from "../hook/context";
 
 export default function Footer() {
-  const {language} = useAppContext();
+  const { language, appData } = useAppContext();
+  
 
-  // custom hookum ile dil datasını çekiyorum, bileşenlerimi bu dataya göre 
-  //conditional rendering yapıyorum.
+  // Veri yapısına uygun şekilde dil ve footer verilerini çekme
+  const footerData = appData[language]?.footer || {};
+  const { fh, fh2 } = footerData;
+
   return (
     <div className="footer">
-      {language === "en" ? (
-        <h3 className="letsWork">
-          Let's work together on 
-          <br />
-          your next product.
-        </h3>
-      ) : (
-        <h3 className="letsWork">
-          "Haydi sonraki projenizde
-          <br />
-          birlikte çalışalım.
-        </h3>
-      )}
+      <h3 className="letsWork">
+        {fh}
+        <br />
+        {fh2}
+      </h3>
       <div className="rectangle">
         <a className="email" href="eceykilic@gmail.com">
           <img src=".\icons\el.svg" alt="icon" />
@@ -28,7 +23,7 @@ export default function Footer() {
         </a>
 
         <nav className="sagF">
-        <a
+          <a
             className="sagF2"
             href="https://github.com/eceykilic"
             target="_blank"

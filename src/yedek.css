@@ -1,0 +1,137 @@
+a.sagF2.dark-mode:first-child {
+    color: #E1E1FF;
+  }
+  
+  body.dark-mode {
+    background-color: #252128;
+    color: #ffffff;
+  }
+  
+  .footer.dark-mode {
+    background-color: #141414;
+    color: #aebccf;
+  }
+  
+  .modeText.dark-mode {
+    color: #d9d9d9;
+  }
+  
+  .lang.dark-mode {
+    color: #bab2e7;
+  }
+  
+  .footer.dark-mode h3 {
+    color: #aebccf;
+  }
+  
+  .emailcss.dark-mode {
+    color: #bab2e7;
+  }
+  
+  .sagF1.dark-mode {
+    color: #bab2e7;
+  }
+  
+  .logo.dark-mode {
+    color: #8f88ff;
+    background-color: #4731d3;
+  }
+  
+  .line.dark-mode {
+    border-top: 1px solid #6b7280;
+  }
+  
+  .isim.dark-mode p {
+    color: #6b7280;
+  }
+  
+  .headerNav.dark-mode a:last-child {
+    background: #ffffff;
+    border: 1px solid #3730a3;
+    border-radius: 6px;
+  }
+  
+  .heroLeft.dark-mode h2 {
+    color: #aebccf;
+  }
+  
+  .skills.dark-mode h3 {
+    color: #aebccf;
+  }
+  
+  .skills.dark-mode h4 {
+    color: #B7AAFF;
+  }
+  
+  .profileLine.dark-mode {
+    border-top: 1px solid #6b7280;
+  }
+  
+  .profile.dark-mode h3 {
+    color: #aebccf;
+  }
+  
+  .profile.dark-mode h4 {
+    color: #B7AAFF;
+  }
+  
+  .profile.dark-mode p {
+    color: #FFFFFF;
+  }
+  
+  .projects.dark-mode h3 {
+    color: #aebccf;
+  }
+  
+  .projects.dark-mode h4 {
+    color: #CFCBFF;
+  }
+  
+  
+  
+  .aciklama.dark-mode {
+    color: #FFFFFF;
+  }
+  
+  
+  
+  .details p.dark-mode {
+    color: #E1E1FF;
+  }
+  
+  
+  .techStack p.dark-mode {
+    color: #8F88FF;
+    background-color: #383838;
+    border: 1px solid #8F88FF;
+  }
+  
+  .projects.dark-mode .profileLine {
+    border-top: 1px solid #6b7280;
+  }
+  
+  .button-2.dark-mode {
+    background-color: #383838;
+    color: #E1E1FF;
+    border: 1px solid #E1E1FF;
+  }
+  
+  .button-2.dark-mode p, .button-2.dark-mode img {
+    color: #E1E1FF;
+  }
+  
+  .button-1.dark-mode p {
+    background-color: #E1E1FF;
+    color:#000000;
+  }
+  
+  .icon-style.dark-mode {
+    font-size: 2rem;
+    color: rgb(225, 225, 255);
+  }
+  
+  .icon-link.dark-mode {
+    font-size: 2rem;
+    color: rgb(225, 225, 255);
+  }
+  

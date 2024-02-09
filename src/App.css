@@ -726,9 +726,15 @@ a {
   color: #0077b5;
 }
 
+.aciklama {
+  color: #6B7280;
+}
+
+.details p {
+  color: #3730A3;
+}
 
 /******************* dark mode *******************/
-
 
 a.sagF2.dark-mode:first-child {
   color: #E1E1FF;
@@ -819,17 +825,13 @@ body.dark-mode {
   color: #CFCBFF;
 }
 
-.aciklama {
-  color: #6B7280;
-}
+
 
 .aciklama.dark-mode {
   color: #FFFFFF;
 }
 
-.details p {
-  color: #3730A3;
-}
+
 
 .details p.dark-mode {
   color: #E1E1FF;
@@ -881,6 +883,11 @@ body.dark-mode {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 1rem;
+  }
+
+  .headerNav a{
+    font-size: 14px;
   }
 
   .pp {
@@ -890,11 +897,12 @@ body.dark-mode {
   }
 
   .heroLeft h2 {
-    font-size: 60px;
+    font-size: 50px;
+    width: 560px;
   }
 
   .isimP {
-    width: 600px;
+    width: 550px;
   }
 
   .isim-cont {

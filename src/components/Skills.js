@@ -1,29 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { trSkillsData, skillsData } from "../data/skills-data";
+import React from "react";
 import { useAppContext } from "../hook/context";
 
-// ternary kullanmadan skillleri maplemek
-
-//diller ve karşılığında kullanılacak veriler
-const languageSkillsMap = {
-  tr: trSkillsData,
-  en: skillsData,
-};
-
 export default function Skills() {
-  const { language } = useAppContext();
-  const [skillsDataFull, setSkillsDataFull] = useState([]);
-
-  useEffect(() => {
-    // Dil değiştiğinde, uygun veriyi set et
-    setSkillsDataFull(languageSkillsMap[language] || []);
-  }, [language]);
+  const { language, appData } = useAppContext();
+  
+  // Veri yapısına uygun şekilde dil ve skills verilerini çekme
+  const skillsData = appData[language]?.skills || [];
 
   return (
     <div className="skills">
       <h3>Skills</h3>
       <div className="skillsList">
-        {skillsDataFull.map((skill) => (
+        {skillsData.map((skill) => (
           <div className="skillsListGroup" key={skill.name}>
             <h4 className="skillAd">{skill.name}</h4>
             <p>{skill.description}</p>

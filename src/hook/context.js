@@ -1,25 +1,33 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
+import { projectData} from "../data/data"
 
-// Context'i oluşturdum
 const AppContext = createContext();
 
-// Context'in kullanılacağı yerde kullanılacak bir provider oluşturdum
-// uygulama içerisinde kullanılacak durumları ve işlevleri içerir.
 export const AppProvider = ({ children }) => {
   const [language, setLanguage] = useState(localStorage.getItem("language"));
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
+  const [appData, setAppData] = useState({});
 
-  // Bu state'in varsayılan değeri, localStorage'da "darkMode" anahtarının değeridir.
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("darkMode") === "true"
-  );
-
-  //  mevcut dil durumuna bağlı olarak dil değişikliğini yapar ve 
-  //yeni dil durumunu localStorage'da saklar.
   const handleLanguageChange = () => {
     const newLanguage = language === "en" ? "tr" : "en";
     setLanguage(newLanguage);
     localStorage.setItem("language", newLanguage);
   };
+
+  const fetchData = () => {
+    axios.post("https://reqres.in/api/workintech", projectData)
+      .then(response => {
+        setAppData(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchData(); // Component mount olduğunda veriyi çek
+  }, []); // Boş dependency array ile sadece bir kere çalışmasını sağla
 
   return (
     <AppContext.Provider
@@ -28,6 +36,8 @@ export const AppProvider = ({ children }) => {
         darkMode,
         setDarkMode,
         handleLanguageChange,
+        appData,
+        fetchData,
       }}
     >
       {children}
@@ -35,8 +45,6 @@ export const AppProvider = ({ children }) => {
   );
 };
 
-// Context'i kullanmak için özel bir hook oluşturdum
-// Bu hook, useContext hook'u kullanılarak context'in değerlerine erişim sağlar.
 export const useAppContext = () => {
   return useContext(AppContext);
 };
